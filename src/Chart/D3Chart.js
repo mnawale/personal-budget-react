@@ -7,7 +7,7 @@ class D3Chart extends Component {
     this.ref = createRef();
     this.createPie = d3
       .pie()
-      .value(d => d.value)
+      .value(d => d.budget)
       .sort(null);
     this.createArc = d3
       .arc()
@@ -16,6 +16,7 @@ class D3Chart extends Component {
     this.colors = d3.scaleOrdinal(d3.schemeCategory10);
     this.format = d3.format(".2f");
   }
+  
   componentDidMount() {
     const svg = d3.select(this.ref.current);
     const data = this.createPie(this.props.data);
@@ -50,12 +51,13 @@ class D3Chart extends Component {
       .attr("transform", d => `translate(${this.createArc.centroid(d)})`)
       .style("fill", "white")
       .style("font-size", 10)
-      .text(d => this.format(d.value));
+      .text(d => d.budget);
   }
 
   componentWillUpdate(nextProps, nextState) {
     const svg = d3.select(this.ref.current);
     const data = this.createPie(nextProps.data);
+    
 
     const group = svg
       .select("g")
@@ -82,8 +84,8 @@ class D3Chart extends Component {
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "middle")
       .attr("transform", d => `translate(${this.createArc.centroid(d)})`)
-      .text(d => this.format(d.value));
-  }
+      .text(d => this.format(d.data.budget));
+    }
 
   render() {
     return <svg ref={this.ref} />;

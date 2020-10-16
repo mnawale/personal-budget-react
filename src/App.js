@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import Menu from './Menu/Menu';
 import Hero from './Hero/Hero'
 import About from './AboutPage/About';
@@ -7,7 +7,7 @@ import HomePage from './HomePage/HomePage';
 import Login from './LoginPage/LoginPage';
 import Contact from './ContactPage/Contact';
 import Footer from './Footer/Footer';
-import Donut from './Temp/Donut'
+
 
 
 import {
@@ -41,7 +41,7 @@ class App extends Component {
         </Switch>
       
       </div>
-     
+    
       <Footer/>
     </Router>
   );
