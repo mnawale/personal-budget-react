@@ -1,4 +1,6 @@
 import React from 'react';
+import PieChart from '../Chart/PieChart'
+import Donut from '../Temp/Donut';
 
 
 function HomePage() {
@@ -36,12 +38,17 @@ function HomePage() {
         <header>
           <h1>Chart</h1>
         </header>
+        <div className="chart">
+        <PieChart/>
+        </div>
       </article>
       <article className="text-box">
         <header>
           <h1>D3 Chart</h1>
         </header>
+        <Donut></Donut>
       </article>
+      
     </section>    
   </main>
              
